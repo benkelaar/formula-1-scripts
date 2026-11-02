@@ -1,8 +1,19 @@
+# Formula 1 All-Time Championship Animation
+
+A Python application that retrieves historical Formula 1 championship data and
+turns cumulative all-time driver rankings into a polished animated bar chart
+race.
+
+## Development tooling
+
+- Use `uv` to manage the Python version, virtual environment, and dependencies.
+- Add and remove Python dependencies through `uv`; do not manually maintain a
+  parallel `requirements.txt` workflow.
+
 ## Development workflow
 
 Development is spec-driven and incremental.
-
-- Each meaningful gameplay increment should have a small Markdown spec in
+- Each meaningful project increment should have a small Markdown spec in
   `/specs`.
 - Specs are numbered sequentially (`001-...`, `002-...`, etc.).
 - A new spec should normally be committed before or together with its
