@@ -11,6 +11,7 @@ from .acquisition import AcquisitionError, JolpicaClient
 from .cache import CacheStore
 from .config import AcquisitionSettings
 from .source_models import SourceValidationError
+from .scoring import build_rankings_from_cache, write_rankings
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -22,6 +23,14 @@ def build_parser() -> argparse.ArgumentParser:
     fetch.add_argument("--from", dest="start_season", type=int, default=1950)
     fetch.add_argument("--to", dest="end_season", type=int, default=2026)
     fetch.add_argument("--refresh", action="store_true")
+
+    rankings = subparsers.add_parser(
+        "build-rankings", help="Build cumulative fictional rankings from cached seasons"
+    )
+    rankings.add_argument("--cache-dir", type=Path, default=Path("data/raw/jolpica"))
+    rankings.add_argument("--output", type=Path, default=Path("data/derived/rankings.json"))
+    rankings.add_argument("--from", dest="start_season", type=int, default=1950)
+    rankings.add_argument("--to", dest="end_season", type=int, default=2026)
     return parser
 
 
@@ -46,6 +55,13 @@ def _settings(args: argparse.Namespace) -> AcquisitionSettings:
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
+        if args.command == "build-rankings":
+            rankings = build_rankings_from_cache(
+                args.cache_dir, args.start_season, args.end_season
+            )
+            sha256 = write_rankings(args.output, rankings)
+            print(f"saved {args.output} sha256={sha256}")
+            return 0
         settings = _settings(args)
         store = CacheStore(settings.cache_dir)
         return _fetch_seasons(args, settings, store)
