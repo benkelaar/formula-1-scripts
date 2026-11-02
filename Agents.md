@@ -36,3 +36,20 @@ Development is spec-driven and incremental.
 - Historical specs describe the intent of an increment at the time it was
   implemented. Do not rewrite old specs merely because the implementation
   evolves later.
+
+## Simplicity and scope
+
+- Choose the smallest change or investigation that directly answers the current
+  request.
+- Do not turn a one-off check, audit, or report into a reusable subsystem unless
+  the user asks for that subsystem or the current implementation requires it.
+- Before adding schemas, commands, abstractions, generated artifacts, or atomic
+  publication machinery, identify the current consumer that needs them. Defer
+  them when the need is only hypothetical or belongs to a later increment.
+- A spec should be proportional to the change. Small, low-risk work may need
+  only a short spec or an update to an existing one; analysis-only work does not
+  require a new implementation spec.
+- Prefer inspecting the actual data and reporting concrete findings before
+  designing infrastructure intended to handle possible findings.
+- When a simpler approach satisfies the acceptance criteria, use it even if a
+  more elaborate approach could be more reusable later.

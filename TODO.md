@@ -2,13 +2,11 @@
 
 ## Next
 
-- Write and review a spec for normalization and full historical-data
-  validation.
+- Write and implement a spec for fictional scoring, cumulative rankings, and
+  deterministic tie-breaking.
 
 ## Later
 
-- Write and implement a spec for fictional scoring, cumulative rankings, and
-  deterministic tie-breaking.
 - Write and implement a spec for driver identity, nationality mapping, local
   flag assets, accessible colors, and fonts.
 - Write and implement a spec for the animation timeline and interpolation.
@@ -32,3 +30,5 @@
 - Added mocked acquisition, cache, validation, and CLI tests.
 - Added the minimal README and Windows/PowerShell setup documentation.
 - Unified every season under one cache format, fetch command, and refresh path.
+- Validated all cached 1950–2026 standings for coverage, source structure,
+  top-ten positions, driver IDs, points, and identity-field completeness.
