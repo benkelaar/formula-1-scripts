@@ -2,7 +2,6 @@
 
 ## Next
 
-- Add year of first points as third tie-breaker 
 - Add driver identity, nationality mapping, local
   flag assets, accessible colors, and fonts.
 
@@ -32,3 +31,4 @@
   top-ten positions, driver IDs, points, and identity-field completeness.
 - Wrote and implemented fictional scoring, cumulative rankings, deterministic
   tie-breaking, and atomic JSON export.
+- Added year of first points as the third cumulative-ranking tie-breaker.

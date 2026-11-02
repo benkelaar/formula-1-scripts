@@ -18,7 +18,11 @@ Development is spec-driven and incremental.
 - Specs are numbered sequentially (`001-...`, `002-...`, etc.).
 - A new spec should normally be committed before or together with its
   implementation so that the repository records both intent and code.
-- Read the relevant spec completely before implementing it.
+- Before implementing anything, always present the relevant spec to the user
+  and receive their explicit validation of it. Do not begin implementation
+  until the user has approved the spec.
+- If the user identifies ambiguity, missing acceptance criteria, or a conflict,
+  update the spec and ask them to validate the revised version before coding.
 - Also inspect the existing project before making changes.
 - Implement only the scope described by the current spec.
 - Specs describe the change to make, not the complete desired state of the

@@ -12,7 +12,7 @@ from .cache import CacheStore, _write_bytes_atomic, canonical_json_bytes
 from .source_models import assemble_pages, parse_page
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 POINTS_BY_POSITION = {1: 25, 2: 18, 3: 15, 4: 12, 5: 10, 6: 8, 7: 6, 8: 4, 9: 2, 10: 1}
 
 
@@ -35,6 +35,7 @@ class _DriverTotal:
     points: int = 0
     championships: int = 0
     first_championship_year: int | None = None
+    first_points_year: int | None = None
 
 
 def build_rankings(seasons: Iterable[tuple[int, list[dict[str, Any]], str]]) -> dict[str, Any]:
@@ -52,6 +53,8 @@ def build_rankings(seasons: Iterable[tuple[int, list[dict[str, Any]], str]]) -> 
             award = fictional_points(raw_position)
             total = totals.setdefault(driver_id, _DriverTotal())
             total.points += award
+            if award > 0 and total.first_points_year is None:
+                total.first_points_year = season
             if position == 1:
                 total.championships += 1
                 if total.first_championship_year is None:
@@ -78,6 +81,7 @@ def build_rankings(seasons: Iterable[tuple[int, list[dict[str, Any]], str]]) -> 
                     "cumulative_points": total.points,
                     "championship_count": total.championships,
                     "first_championship_year": total.first_championship_year,
+                    "first_points_year": total.first_points_year,
                 }
             )
         snapshots.append({"season": season, "source_sha256": source_sha256, "rankings": rows})
@@ -137,6 +141,14 @@ def _numeric_position(value: Any) -> int | None:
 
 def _rank_key(
     driver_id: str, total: _DriverTotal
-) -> tuple[int, int, bool, int, str]:
+) -> tuple[int, int, bool, int, int, str]:
     first_year = total.first_championship_year
-    return (-total.points, -total.championships, first_year is None, first_year or 0, driver_id)
+    assert total.first_points_year is not None
+    return (
+        -total.points,
+        -total.championships,
+        first_year is None,
+        first_year or 0,
+        total.first_points_year,
+        driver_id,
+    )

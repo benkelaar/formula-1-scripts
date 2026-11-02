@@ -50,8 +50,8 @@ def test_excludes_driver_until_they_score():
 
     assert [row["driver_id"] for row in result["seasons"][0]["rankings"]] == ["scorer"]
     assert [row["driver_id"] for row in result["seasons"][1]["rankings"]] == [
-        "eventual_scorer",
         "scorer",
+        "eventual_scorer",
     ]
 
 
@@ -65,6 +65,21 @@ def test_earliest_title_then_driver_id_break_equal_score_ties():
     )
     final = result["seasons"][-1]["rankings"]
     assert [row["driver_id"] for row in final] == ["early", "late", "alpha", "zulu"]
+
+
+def test_first_points_year_then_driver_id_break_remaining_ties():
+    result = build_rankings(
+        [
+            (2000, [_standing("earlier", 10)], "a"),
+            (2001, [_standing("zulu", 10), _standing("alpha", 10)], "b"),
+            (2002, [_standing("zulu", 10), _standing("alpha", 10)], "c"),
+            (2003, [_standing("earlier", 10)], "d"),
+        ]
+    )
+
+    final = result["seasons"][-1]["rankings"]
+    assert [row["driver_id"] for row in final] == ["earlier", "alpha", "zulu"]
+    assert [row["first_points_year"] for row in final] == [2000, 2001, 2001]
 
 
 def test_input_order_does_not_affect_rankings():
@@ -82,7 +97,7 @@ def test_cache_build_and_write_are_deterministic(tmp_path, make_payload):
     second = tmp_path / "second.json"
     assert write_rankings(first, rankings) == write_rankings(second, rankings)
     assert first.read_bytes() == second.read_bytes()
-    assert json.loads(first.read_text(encoding="utf-8"))["schema_version"] == 1
+    assert json.loads(first.read_text(encoding="utf-8"))["schema_version"] == 2
 
 
 def test_missing_cache_does_not_replace_output(tmp_path):
