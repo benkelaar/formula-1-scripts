@@ -1,10 +1,5 @@
 # TODO
 
-## Next
-
-- Add driver identity, nationality mapping, local
-  flag assets, accessible colors, and fonts.
-
 ## Later
 
 - Add the animation timeline and interpolation.
@@ -32,3 +27,6 @@
 - Wrote and implemented fictional scoring, cumulative rankings, deterministic
   tie-breaking, and atomic JSON export.
 - Added year of first points as the third cumulative-ranking tie-breaker.
+- Added the separate driver visual-reference dataset with stable names,
+  nationality mapping, local licensed flags, accessible nationality colors,
+  the orange Dutch palette entry, and a bundled variable font.

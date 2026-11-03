@@ -1,0 +1,208 @@
+schema_version = 1
+background_color = "#07111F"
+white_text_color = "#FFFFFF"
+
+[fallback]
+nationality_key = "unknown"
+flag_key = "unknown"
+bar_color = "#586F87"
+
+[nationalities."American"]
+key = "united-states"
+flag_key = "us"
+bar_color = "#A64050"
+
+[nationalities."Argentine"]
+key = "argentina"
+flag_key = "ar"
+bar_color = "#336B9A"
+
+[nationalities."Australian"]
+key = "australia"
+flag_key = "au"
+bar_color = "#7758A6"
+
+[nationalities."Austrian"]
+key = "austria"
+flag_key = "at"
+bar_color = "#A64050"
+
+[nationalities."Belgian"]
+key = "belgium"
+flag_key = "be"
+bar_color = "#8A6500"
+
+[nationalities."Brazilian"]
+key = "brazil"
+flag_key = "br"
+bar_color = "#337A45"
+
+[nationalities."British"]
+key = "united-kingdom"
+flag_key = "gb"
+bar_color = "#336B9A"
+
+[nationalities."Canadian"]
+key = "canada"
+flag_key = "ca"
+bar_color = "#A64050"
+
+[nationalities."Chilean"]
+key = "chile"
+flag_key = "cl"
+bar_color = "#336B9A"
+
+[nationalities."Chinese"]
+key = "china"
+flag_key = "cn"
+bar_color = "#A64050"
+
+[nationalities."Colombian"]
+key = "colombia"
+flag_key = "co"
+bar_color = "#8A6500"
+
+[nationalities."Czech"]
+key = "czechia"
+flag_key = "cz"
+bar_color = "#336B9A"
+
+[nationalities."Danish"]
+key = "denmark"
+flag_key = "dk"
+bar_color = "#A64050"
+
+[nationalities."Dutch"]
+key = "dutch"
+flag_key = "nl"
+bar_color = "#C45100"
+
+[nationalities."East German"]
+key = "east-germany"
+flag_key = "de"
+bar_color = "#8A6500"
+
+[nationalities."Finnish"]
+key = "finland"
+flag_key = "fi"
+bar_color = "#336B9A"
+
+[nationalities."French"]
+key = "france"
+flag_key = "fr"
+bar_color = "#7758A6"
+
+[nationalities."German"]
+key = "germany"
+flag_key = "de"
+bar_color = "#8A6500"
+
+[nationalities."Hungarian"]
+key = "hungary"
+flag_key = "hu"
+bar_color = "#177B70"
+
+[nationalities."Indian"]
+key = "india"
+flag_key = "in"
+bar_color = "#B95800"
+
+[nationalities."Indonesian"]
+key = "indonesia"
+flag_key = "id"
+bar_color = "#A64050"
+
+[nationalities."Irish"]
+key = "ireland"
+flag_key = "ie"
+bar_color = "#337A45"
+
+[nationalities."Italian"]
+key = "italy"
+flag_key = "it"
+bar_color = "#337A45"
+
+[nationalities."Japanese"]
+key = "japan"
+flag_key = "jp"
+bar_color = "#A64050"
+
+[nationalities."Liechtensteiner"]
+key = "liechtenstein"
+flag_key = "li"
+bar_color = "#7758A6"
+
+[nationalities."Malaysian"]
+key = "malaysia"
+flag_key = "my"
+bar_color = "#336B9A"
+
+[nationalities."Mexican"]
+key = "mexico"
+flag_key = "mx"
+bar_color = "#337A45"
+
+[nationalities."Monegasque"]
+key = "monaco"
+flag_key = "mc"
+bar_color = "#A64050"
+
+[nationalities."New Zealander"]
+key = "new-zealand"
+flag_key = "nz"
+bar_color = "#336B9A"
+
+[nationalities."Polish"]
+key = "poland"
+flag_key = "pl"
+bar_color = "#A64050"
+
+[nationalities."Portuguese"]
+key = "portugal"
+flag_key = "pt"
+bar_color = "#337A45"
+
+[nationalities."Rhodesian"]
+key = "rhodesia"
+flag_key = "rhodesia"
+bar_color = "#337A45"
+
+[nationalities."Russian"]
+key = "russia"
+flag_key = "ru"
+bar_color = "#7758A6"
+
+[nationalities."South African"]
+key = "south-africa"
+flag_key = "za"
+bar_color = "#337A45"
+
+[nationalities."Spanish"]
+key = "spain"
+flag_key = "es"
+bar_color = "#8A6500"
+
+[nationalities."Swedish"]
+key = "sweden"
+flag_key = "se"
+bar_color = "#586F87"
+
+[nationalities."Swiss"]
+key = "switzerland"
+flag_key = "ch"
+bar_color = "#A64050"
+
+[nationalities."Thai"]
+key = "thailand"
+flag_key = "th"
+bar_color = "#7758A6"
+
+[nationalities."Uruguayan"]
+key = "uruguay"
+flag_key = "uy"
+bar_color = "#336B9A"
+
+[nationalities."Venezuelan"]
+key = "venezuela"
+flag_key = "ve"
+bar_color = "#8A6500"
